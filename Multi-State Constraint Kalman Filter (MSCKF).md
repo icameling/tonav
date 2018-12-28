@@ -1,5 +1,7 @@
 # Multi-State Constraint Kalman Filter (MSCKF)
 
+fork from here https://github.com/tomas789/tonav.wiki.git
+
 It took me some time to put together all the literature about MSCKF, I've decided to save you the work and publish it here.
 
 First of all, it is quite interesting to understand historical developments of MSKCF. Before the world begun, we had nothing very useful to perform efficient localization using gyroscope, accelerometer and camera. First broadly used technique was *EKF-SLAM*. As name suggests, it is an Extended Kalman filter based technique for solving SLAM. It usually includes current attitude, position and velocity estimates in state. Beside that it includes positions of known landmarks (usually visual features but can be anything). Using traditional EKF it then estimates positions of known landmarks and robot itself. It works really well (according to literature). Main drawback of it is computational complexity that is O(n^3). It means you usually can afford to include only few features to achieve real-time operation. There seems to be an alternative called FastSLAM but I don't know much about it. Looks like it uses particle filtering (which I really love!) instead of EKF which means you can control tradeoff between speed and accuracy.
